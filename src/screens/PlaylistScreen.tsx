@@ -18,7 +18,7 @@ export default function PlaylistScreen({ id }: playlistProps) {
         <Text style={styles.headertitle}>Playlist</Text>
       </View>
       <ScrollView>
-        <SongIcon />
+        <SongIcon id={0} title="TestSong" album="TestAlbum" length={200} />
       </ScrollView>
     </SafeAreaView>
   );

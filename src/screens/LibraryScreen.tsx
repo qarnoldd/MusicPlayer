@@ -1,16 +1,38 @@
+import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PlaylistIcon from "../components/PlaylistIcon";
+import { getAllPlaylists, Playlist } from "../service/playlistservice";
 
 export default function LibraryScreen() {
+  const [playlists, setPlaylists] = useState<Playlist[]>([]);
+
+  useEffect(() => {
+    async function fetchPlaylists() {
+      const playlistDB = await getAllPlaylists();
+      console.log("PLAYLISTS FROM DB: ", playlists);
+      setPlaylists(playlistDB);
+    }
+    fetchPlaylists();
+  }, []);
+
+  const listPlaylists = playlists.map((item) => {
+    return (
+      <PlaylistIcon
+        key={item.playlist_id}
+        id={item.playlist_id}
+        title={item.title}
+        numSongs={0}
+      />
+    );
+  });
+
   return (
     <SafeAreaView style={styles.body}>
       <View style={styles.header}>
         <Text style={styles.headertitle}>Library</Text>
       </View>
-      <View>
-        <PlaylistIcon id={0} title="All Songs" numSongs={0} />
-      </View>
+      <View>{listPlaylists}</View>
     </SafeAreaView>
   );
 }

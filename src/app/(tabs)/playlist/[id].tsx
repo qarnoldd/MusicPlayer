@@ -1,5 +1,5 @@
-import PlaylistScreen from "../../screens/PlaylistScreen";
+import PlaylistScreen from "@/src/screens/PlaylistScreen";
 
 export default function Playlist() {
-  return <PlaylistScreen />;
+  return <PlaylistScreen id={0} />;
 }

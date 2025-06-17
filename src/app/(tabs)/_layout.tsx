@@ -23,7 +23,7 @@ export default function TabLayout() {
         options={{ title: "Player", headerShown: false }}
       />
       <Tabs.Screen
-        name="playlist"
+        name="playlist/[id]"
         options={{ href: null, headerShown: false }}
       />
     </Tabs>
