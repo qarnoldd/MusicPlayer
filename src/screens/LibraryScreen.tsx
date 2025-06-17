@@ -9,7 +9,7 @@ export default function LibraryScreen() {
         <Text style={styles.headertitle}>Library</Text>
       </View>
       <View>
-        <PlaylistIcon />
+        <PlaylistIcon id={0} title="All Songs" numSongs={0} />
       </View>
     </SafeAreaView>
   );

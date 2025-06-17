@@ -2,13 +2,22 @@ import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
-export default function PlaylistIcon() {
+interface playlistProps {
+  id: number;
+  title: string;
+  numSongs: number;
+}
+
+export default function PlaylistIcon({ id, title, numSongs }: playlistProps) {
   const [pressed, setPressed] = useState(false);
   const router = useRouter();
 
   function handlePress() {
     setPressed(true);
-    router.navigate("/playlist");
+    router.push({
+      pathname: "/playlist/[id]",
+      params: { id: id.toString() },
+    });
   }
 
   return (
@@ -22,8 +31,8 @@ export default function PlaylistIcon() {
         style={styles.image}
       />
       <View style={styles.heading}>
-        <Text style={styles.title}>Collection Title</Text>
-        <Text style={styles.headingtext}>Number of Songs: XXX</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.headingtext}>Number of Songs: {numSongs}</Text>
       </View>
     </Pressable>
   );

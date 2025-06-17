@@ -3,7 +3,11 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SongIcon from "../components/SongIcon";
 
-export default function PlaylistScreen() {
+interface playlistProps {
+  id: number;
+}
+
+export default function PlaylistScreen({ id }: playlistProps) {
   const router = useRouter();
   return (
     <SafeAreaView style={styles.body}>
@@ -25,8 +29,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: 1000,
     color: "white",
-    top: 100,
-    left: 100,
+    top: 50,
+    left: 20,
   },
   body: {
     backgroundColor: "#191919",

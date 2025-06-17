@@ -1,3 +1,6 @@
+import Play from "@/assets/images/svgreact/play";
+import SkipBack from "@/assets/images/svgreact/skipback";
+import SkipForward from "@/assets/images/svgreact/skipforward";
 import { useRouter } from "expo-router";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -21,6 +24,11 @@ export default function PlayerScreen() {
         <View style={styles.timer}>
           <Text style={styles.time}>XX:XX</Text>
           <Text style={styles.time}>XX:XX</Text>
+        </View>
+        <View style={styles.playback}>
+          <SkipBack />
+          <Play style={styles.play} />
+          <SkipForward />
         </View>
       </View>
     </SafeAreaView>
@@ -76,5 +84,14 @@ const styles = StyleSheet.create({
   time: {
     fontFamily: "AileronLight",
     color: "white",
+  },
+  playback: {
+    display: "flex",
+    flexDirection: "row",
+    marginTop: 30,
+  },
+  play: {
+    marginLeft: 50,
+    marginRight: 50,
   },
 });

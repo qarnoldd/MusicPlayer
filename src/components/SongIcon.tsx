@@ -1,14 +1,18 @@
-import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
-export default function SongIcon() {
+interface songProps {
+  id: number;
+  title: string;
+  album: string;
+  length: number;
+}
+
+export default function SongIcon({ id, title, album, length }: songProps) {
   const [pressed, setPressed] = useState(false);
-  const router = useRouter();
 
   function handlePress() {
     setPressed(true);
-    //router.navigate("");
   }
 
   return (
@@ -23,10 +27,10 @@ export default function SongIcon() {
       />
       <View style={styles.heading}>
         <View>
-          <Text style={styles.title}>Song Title</Text>
-          <Text style={styles.headingtext}>Song Album</Text>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.headingtext}>{album}</Text>
         </View>
-        <Text style={styles.side}>xx:xx</Text>
+        <Text style={styles.side}>{length}</Text>
       </View>
     </Pressable>
   );
