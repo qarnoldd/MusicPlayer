@@ -1,3 +1,5 @@
+import Headphones from "@/assets/images/svgreact/headphones";
+import Menu from "@/assets/images/svgreact/menu";
 import { Tabs } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 
@@ -16,11 +18,19 @@ export default function TabLayout() {
     >
       <Tabs.Screen
         name="index"
-        options={{ title: "Library", headerShown: false }}
+        options={{
+          title: "Library",
+          headerShown: false,
+          tabBarIcon: ({ color }) => <Menu stroke={color} />,
+        }}
       />
       <Tabs.Screen
         name="player"
-        options={{ title: "Player", headerShown: false }}
+        options={{
+          title: "Player",
+          headerShown: false,
+          tabBarIcon: ({ color }) => <Headphones stroke={color} />,
+        }}
       />
       <Tabs.Screen
         name="playlist/[id]"

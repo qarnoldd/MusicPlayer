@@ -10,7 +10,6 @@ export default function LibraryScreen() {
   useEffect(() => {
     async function fetchPlaylists() {
       const playlistDB = await getAllPlaylists();
-      console.log("PLAYLISTS FROM DB: ", playlists);
       setPlaylists(playlistDB);
     }
     fetchPlaylists();
@@ -32,7 +31,10 @@ export default function LibraryScreen() {
       <View style={styles.header}>
         <Text style={styles.headertitle}>Library</Text>
       </View>
-      <View>{listPlaylists}</View>
+      <View>
+        <PlaylistIcon id={0} title="All Songs" numSongs={0} />
+        {listPlaylists}
+      </View>
     </SafeAreaView>
   );
 }

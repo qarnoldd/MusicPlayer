@@ -1,3 +1,4 @@
+import Back from "@/assets/images/svgreact/back";
 import Play from "@/assets/images/svgreact/play";
 import SkipBack from "@/assets/images/svgreact/skipback";
 import SkipForward from "@/assets/images/svgreact/skipforward";
@@ -11,7 +12,7 @@ export default function PlayerScreen() {
   return (
     <SafeAreaView style={styles.body}>
       <Pressable style={styles.back} onPress={() => router.back()}>
-        <Text>BACK</Text>
+        <Back color="white" style={{ filter: "invert(100)" }} />
       </Pressable>
       <Image
         source={require("../../assets/images/pholder.png")}
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     zIndex: 999,
     color: "black",
     top: 40,
-    left: 20,
+    left: 10,
   },
   image: {
     width: "100%",

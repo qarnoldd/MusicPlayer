@@ -53,6 +53,21 @@ export async function initDatabase(db:SQLite.SQLiteDatabase) {
   CREATE TABLE IF NOT EXISTS playlist_songs (playlist_id INTEGER, song_id INTEGER, PRIMARY KEY(playlist_id, song_id), FOREIGN KEY (playlist_id) REFERENCES playlists(id) ON DELETE CASCADE, FOREIGN KEY (song_id) REFERENCES songs(id) ON DELETE CASCADE);
   `);
   console.log("DATABASE INITIALISED")
+  /*
+  const rows = await db.getAllAsync("SELECT * FROM playlists");
+  for (const row of rows)
+    console.log(row)
+  const allRows = await db.getAllAsync(`
+          SELECT songs.*
+          FROM songs
+          JOIN playlist_songs ON songs.song_id = playlist_songs.song_id
+          WHERE playlist_songs.playlist_id = 1;
+          `);
+      const songs = []
+      for (const row of allRows)
+      {
+        console.log(row)
+      }*/
 }
 
 export async function deleteDatabase() {

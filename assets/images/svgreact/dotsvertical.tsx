@@ -1,17 +1,15 @@
 import * as React from "react";
 import Svg, { Path, SvgProps } from "react-native-svg";
 
-function Menu(props: SvgProps) {
+function DotsVertical(props: SvgProps) {
   return (
     <Svg width={24} height={24} fill="none" viewBox="0 0 24 24" {...props}>
       <Path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M4.75 5.75h14.5M4.75 18.25h14.5M4.75 12h14.5"
+        fill="currentColor"
+        d="M13 12a1 1 0 11-2 0 1 1 0 012 0zM13 8a1 1 0 11-2 0 1 1 0 012 0zM13 16a1 1 0 11-2 0 1 1 0 012 0z"
       />
     </Svg>
   );
 }
 
-export default Menu;
+export default DotsVertical;
